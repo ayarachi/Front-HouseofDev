@@ -1,0 +1,12 @@
+.container {
+  background-image: url(../static/images/Group_181.png);
+  background-size: cover;
+  height: 100vh;
+  padding: 20px;
+}
+
+.formulario {
+  padding: 40px;
+  background-color: red;
+  display: inline-block;
+}

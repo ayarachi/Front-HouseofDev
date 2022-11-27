@@ -5,21 +5,25 @@ import { Route, Routes } from "react-router";
 import Register from "./components/Register";
 import Login from "./components/Login";
 
-
-const App = () => {
-  
+const InnerApp = () => {
   return (
-    <div>
+    <>
       <Navbar />
-     
-      <Routes>  
-        <Route path="/" element={<Home/>}/>
-        <Route path="/register" element={<Register/>}/>
-        <Route path="/login" element={<Login/>}/>
+      <Routes>
+        <Route path="/" element={<Home />} />
       </Routes>
-    </div>
+    </>
   );
 };
+
+const App = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/app/*" element={<InnerApp />} />
+    </Routes>
+  );
+};
+
 export default App;
-
-

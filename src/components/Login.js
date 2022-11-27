@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 import axios from "axios";
-import { Button } from "@mui/material";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import "./Login.css";
 
 const Login = () => {
+  const navigateTo = useNavigate();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
@@ -19,19 +24,46 @@ const Login = () => {
     const user = { email, pass };
     axios
       .post("/api/login", user)
-      .then((res) => console.log(res))
-      .catch((err) => console.error(err));
+      .then((res) => {
+        console.log(res);
+        navigateTo("/app");
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("El login falló");
+      });
   };
 
   return (
-    <form onSubmit={login}>
-      <label>Email</label>
-      <input type="text" value={email} onChange={correo} />
-      <label>Password</label>
-      <input type="password" value={pass} onChange={contraseña} />
-
-      <button type="submit">SUBMIT</button>
-    </form>
+    <div className="container image">
+      <div className="formulario">
+        <h1>HOUSE OF DEV</h1>
+        <div>
+          <TextField
+            label="Correo"
+            onChange={correo}
+            value={email}
+            variant="outlined"
+          />
+        </div>
+        <div>
+          <TextField
+            label="Contraseña"
+            onChange={contraseña}
+            value={pass}
+            variant="outlined"
+          />
+        </div>
+        <div>
+          <Button onClick={login} variant="text">
+            Login
+          </Button>
+        </div>
+        <div>
+          <Button variant="text">Registrarse</Button>
+        </div>
+      </div>
+    </div>
   );
 };
 
