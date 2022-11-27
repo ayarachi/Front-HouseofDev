@@ -3,7 +3,6 @@ import TextField from "@mui/material/TextField";
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import "./Login.css";
 
 const Login = () => {
@@ -33,6 +32,10 @@ const Login = () => {
         alert("El login falló");
       });
   };
+  const onRegister = (e) => {
+    e.preventDefault();
+    navigateTo("/register");
+  };
 
   return (
     <div className="container image">
@@ -48,6 +51,7 @@ const Login = () => {
         </div>
         <div>
           <TextField
+            type="password"
             label="Contraseña"
             onChange={contraseña}
             value={pass}
@@ -60,7 +64,9 @@ const Login = () => {
           </Button>
         </div>
         <div>
-          <Button variant="text">Registrarse</Button>
+          <Button onClick={onRegister} variant="text">
+            Registrarse
+          </Button>
         </div>
       </div>
     </div>
