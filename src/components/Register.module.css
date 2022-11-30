@@ -1,12 +1,12 @@
 .container {
-  background-image: url(../static/images/Group_181.png);
+  background-image: url(../static/images/Foto-casas2.png);
   background-size: cover;
   height: 100vh;
   padding: 20px;
 }
 
-.formulario {
+.register {
   padding: 40px;
-  background-color: red;
+  background-color: #FE4236;
   display: inline-block;
 }

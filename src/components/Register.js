@@ -1,8 +1,12 @@
 import Button from "@mui/material/Button";
+import { TextField } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styles from "./Register.module.css";
 
 const Register = () => {
+  const navigateTo = useNavigate();
   const [name, setName] = useState("");
   const [lastName, setLastname] = useState("");
   const [phone, setphone] = useState("");
@@ -28,41 +32,67 @@ const Register = () => {
     e.preventDefault();
     const user = { name, lastName, phone, email, pass };
     axios
-      .post("/api/register", user)
+      .post("/api/users/register", user)
       .then((res) => res.data)
       .then((user) => {
         console.log(user);
+        navigateTo("/login");
       });
   };
+  
 
   return (
-    <form>
-      <div>
-        <label>Name</label>
-        <input type="text" value={name} onChange={nombre} />
+    <div className={styles.container}>
+      <div className={styles.register}>
+        <h1>REGISTRARSE</h1>
+        <div>
+          <TextField
+            label="Nombre"
+            type="text"
+            value={name}
+            onChange={nombre}
+            variant="outlined"
+          />
+        </div>
+        <div>
+          <TextField
+            label="Apellido"
+            type="text"
+            value={lastName}
+            onChange={apellido}
+            variant="outlined"
+          />
+        </div>
+        <TextField
+          label="Telefono"
+          type="number"
+          value={phone}
+          onChange={telefono}
+          variant="outlined"
+        />
+        <div></div>
+        <TextField
+          label="Correo"
+          type="text"
+          value={email}
+          onChange={correo}
+          variant="outlined"
+        />
+        <div></div>
+        <TextField
+          label="Contraseña"
+          type="password"
+          value={pass}
+          onChange={contraseña}
+          variant="outlined"
+        />
+        <div>
+          <Button onClick={registro} variant="text">
+            Submit
+          </Button>
+        </div>
       </div>
-      <div>
-        <label>Lastname</label>
-        <input type="text" value={lastName} onChange={apellido} />
-      </div>
-      <div>
-        <label>Phone</label>
-        <input type="number" value={phone} onChange={telefono} />
-      </div>
-      <div>
-        <label>Email</label>
-        <input type="text" value={email} onChange={correo} />
-      </div>
-      <div>
-        <label>Password</label>
-        <input type="password" value={pass} onChange={contraseña} />
-      </div>
-      <div>
-        <Button onClick={registro} variant="contained">
-          Submit
-        </Button>
-      </div>
-    </form>
+    </div>
   );
 };
 

@@ -4,25 +4,21 @@ import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import PropertyCard from "./components/PropertyCard";
 
-const InnerApp = () => {
+
+const App = () => {
   return (
     <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/:id" element={<PropertyCard />} />
+
       </Routes>
     </>
-  );
-};
-
-const App = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/app/*" element={<InnerApp />} />
-    </Routes>
   );
 };
 

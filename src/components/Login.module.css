@@ -1,0 +1,13 @@
+.container {
+  background-image: url(../static/images/foto-casa1.png);
+  background-size: cover;
+  height: 100vh;
+  padding: 20px;
+}
+
+.formulario {
+  padding: 40px;
+  background-color:
+  #FE4236;
+  display: inline-block;
+}

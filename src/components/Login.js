@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
+import styles from "./Login.module.css";
 
 const Login = () => {
   const navigateTo = useNavigate();
@@ -22,24 +22,21 @@ const Login = () => {
     e.preventDefault();
     const user = { email, pass };
     axios
-      .post("/api/login", user)
+      .post("/api/users/login", user)
       .then((res) => {
         console.log(res);
-        navigateTo("/app");
+        navigateTo("/");
       })
       .catch((err) => {
         console.error(err);
         alert("El login falló");
       });
   };
-  const onRegister = (e) => {
-    e.preventDefault();
-    navigateTo("/register");
-  };
+  
 
   return (
-    <div className="container image">
-      <div className="formulario">
+    <div className={styles.container}>
+      <div className={styles.formulario}>
         <h1>HOUSE OF DEV</h1>
         <div>
           <TextField
@@ -63,11 +60,7 @@ const Login = () => {
             Login
           </Button>
         </div>
-        <div>
-          <Button onClick={onRegister} variant="text">
-            Registrarse
-          </Button>
-        </div>
+        
       </div>
     </div>
   );
