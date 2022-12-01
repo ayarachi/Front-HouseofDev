@@ -1,12 +1,12 @@
 .container {
   background-image: url(../static/images/Foto-casas2.png);
   background-size: cover;
-  height: 100vh;
+  height: 200vh;
   padding: 20px;
 }
 
 .register {
-  padding: 40px;
+  padding: 80px;
   background-color: #FE4236;
   display: inline-block;
 }

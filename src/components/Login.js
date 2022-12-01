@@ -23,6 +23,7 @@ const Login = () => {
     const user = { email, pass };
     axios
       .post("/api/users/login", user)
+      .then((res) => localStorage.setItem("user", JSON.stringify(res.data)))
       .then((res) => {
         console.log(res);
         navigateTo("/");
@@ -36,7 +37,7 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.formulario}>
+      <div className={styles.formulario}  >
         <h1>HOUSE OF DEV</h1>
         <div>
           <TextField
