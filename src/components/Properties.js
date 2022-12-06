@@ -22,7 +22,7 @@ function Properties() {
   return (
     <>
       {properties.map((property) => (
-        <PropertiesCard property={property} />
+        <PropertiesCard key={property.id} property={property} />
       ))}
     </>
   );

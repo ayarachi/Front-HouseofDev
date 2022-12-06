@@ -8,6 +8,9 @@ import Properties from "./components/Properties";
 import PropertyCard from "./components/PropertyDetail";
 import Register from "./components/Register";
 import UserProfile from "./components/UserProfile";
+import Admin from "./components/Admin";
+import AdminProperties from "./components/AdminProperties";
+
 
 const App = () => {
   return (
@@ -20,6 +23,8 @@ const App = () => {
         <Route path="/properties" element={<Properties />} />
         <Route path="/properties/:propertyId" element={<PropertyCard />} />
         <Route path="/user/profile" element={<UserProfile />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/properties" element={< AdminProperties/>} />
       </Routes>
     </>
   );

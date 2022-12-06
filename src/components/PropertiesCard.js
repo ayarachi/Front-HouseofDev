@@ -29,7 +29,7 @@ const PropertiesCard = ({ property }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
+        <Button size="small">FAVORITO</Button>
         <Link to={`/properties/${property.id}`}>
           <Button size="small">VER MAS</Button>
         </Link>

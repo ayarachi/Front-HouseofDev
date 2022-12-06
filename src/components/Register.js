@@ -39,7 +39,6 @@ const Register = () => {
         navigateTo("/login");
       });
   };
-  
 
   return (
     <div className={styles.container}>

@@ -6,12 +6,22 @@ import styles from "./Register.module.css";
 
 function UserProfile() {
   const usuario = JSON.parse(localStorage.getItem("user")) || {};
+
+  // const [name, setName] = useState(usuario.name);
+  // const [lastName, setLastname] = useState(usuario.lastName);
+  // const [phone, setphone] = useState(usuario.phone);
+  // const [email, setEmail] = useState(usuario.email);
+
+  // const handelChangeName=()=>{
+  //   setName(e.target.value)
+  // }
+
   return (
     <div className={styles.register}>
       <h1>Mi Perfil</h1>
       <div>
         <TextField
-          label="Nombre"
+          label="Editar nombre"
           type="text"
           value={usuario.name}
           variant="outlined"
@@ -19,21 +29,21 @@ function UserProfile() {
       </div>
       <div>
         <TextField
-          label="Apellido"
+          label="Editar apellido"
           type="text"
           value={usuario.lastName}
           variant="outlined"
         />
       </div>
       <TextField
-        label="Telefono"
+        label="Editar telefono"
         type="number"
-        value={usuario.Buttonphone}
+        value={usuario.phone}
         variant="outlined"
       />
       <div></div>
       <TextField
-        label="Correo"
+        label="Editar correo"
         type="text"
         value={usuario.email}
         variant="outlined"
@@ -45,9 +55,17 @@ function UserProfile() {
         value={usuario.pass}
         variant="outlined"
       />
-      <div>
-        <Button variant="text">Confirmar cambios</Button>
-      </div>
+      <div>Is Admin: {usuario.isAdmin ? "true" : "false"}</div>
+      {usuario.isAdmin && (
+        <div>
+          <Button variant="text">Admin botón</Button>
+        </div>
+      )}
+      {!usuario.isAdmin && (
+        <div>
+          <Button variant="text">Confirmar cambios</Button>
+        </div>
+      )}
     </div>
   );
 }
