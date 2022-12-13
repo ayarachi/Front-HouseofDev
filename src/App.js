@@ -10,7 +10,7 @@ import Register from "./components/Register";
 import UserProfile from "./components/UserProfile";
 import Admin from "./components/Admin";
 import AdminProperties from "./components/AdminProperties";
-
+import AddProperty from "./components/AddProperty";
 
 const App = () => {
   return (
@@ -24,7 +24,8 @@ const App = () => {
         <Route path="/properties/:propertyId" element={<PropertyCard />} />
         <Route path="/user/profile" element={<UserProfile />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/admin/properties" element={< AdminProperties/>} />
+        <Route path="/admin/properties" element={<AdminProperties />} />
+        <Route path="/admin/addproperty" element={<AddProperty />} />
       </Routes>
     </>
   );

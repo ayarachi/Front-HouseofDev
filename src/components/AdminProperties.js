@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Button } from "@mui/material";
+import AddProperty from "./AddProperty";
+import { Link } from "react-router-dom";
 
 const AdminProperties = () => {
   const [properties, setProperties] = useState([]);
@@ -26,38 +28,43 @@ const AdminProperties = () => {
   };
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>nombre</th>
-          <th>typo</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {properties.map((property) => {
-          return (
-            <tr>
-              <td>{property.id}</td>
-              <td>{property.name}</td>
-              <td>{property.type}</td>
-              <td>
-                <Button> modificar </Button>
-              </td>
-              <td>
-                {" "}
-                <Button onClick={() => handleSubmit(property.id)}>
+    <>
+      <Link to="/admin/addproperty">
+        <Button> crear propiedad </Button>
+      </Link>
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>nombre</th>
+            <th>typo</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {properties.map((property) => {
+            return (
+              <tr key={property.id}>
+                <td>{property.id}</td>
+                <td>{property.name}</td>
+                <td>{property.type}</td>
+                <td>
+                  <Button> modificar </Button>
+                </td>
+                <td>
                   {" "}
-                  eliminar{" "}
-                </Button>
-              </td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+                  <Button onClick={() => handleSubmit(property.id)}>
+                    {" "}
+                    eliminar{" "}
+                  </Button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
   );
 };
 
