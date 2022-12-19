@@ -50,7 +50,9 @@ const AdminProperties = () => {
                 <td>{property.name}</td>
                 <td>{property.type}</td>
                 <td>
-                  <Button> modificar </Button>
+                  <Link to = {`/admin/editproperty/${property.id}`}>
+                  <Button > modificar </Button>
+                  </Link>
                 </td>
                 <td>
                   {" "}

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,6 +7,8 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import SearchBar from "./SearchBar";
+
 
 const Navbar = () => {
   const usuario = JSON.parse(localStorage.getItem("user"));
@@ -15,9 +16,7 @@ const Navbar = () => {
 
   const navigateTo = useNavigate();
 
-  
   const handleLogout = () => {
-    
     axios
       .post("/api/users/logout")
       .then(() => localStorage.removeItem("user"))
@@ -29,6 +28,7 @@ const Navbar = () => {
         alert("El logout fallo");
       });
   };
+ 
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -49,10 +49,13 @@ const Navbar = () => {
           <Link to="/Admin">
             <Button color="inherit">Administrar Propiedades</Button>
           </Link>
+          
           <Link to="/register">
             <Button color="inherit">Register</Button>
           </Link>
           <div style={{ flexGrow: 1 }}></div>
+         <SearchBar></SearchBar>
+
           {!existeSesion ? (
             <Link to="/login">
               <Button color="inherit">Iniciar Sesion</Button>

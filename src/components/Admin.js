@@ -13,7 +13,9 @@ const Admin = () => {
         Este es el espacio del admin y puede modificar los datos de los
         siguientes componenetes
       </h5>
+      <Link to = "/admin/users">
       <Button variant="outlined">USUARIOS </Button>
+      </Link>
       <Link to="/admin/properties">
         <Button variant="outlined">PROPIEDADES </Button>
       </Link>

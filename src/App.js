@@ -11,7 +11,8 @@ import UserProfile from "./components/UserProfile";
 import Admin from "./components/Admin";
 import AdminProperties from "./components/AdminProperties";
 import AddProperty from "./components/AddProperty";
-
+import EditProperty from "./components/EditProperty";
+import AdminUsers from "./components/AdminUsers";
 const App = () => {
   return (
     <>
@@ -26,6 +27,8 @@ const App = () => {
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/properties" element={<AdminProperties />} />
         <Route path="/admin/addproperty" element={<AddProperty />} />
+        <Route path="/admin/editproperty/:propertyId" element={<EditProperty />} />
+        <Route path="/admin/users" element={<AdminUsers />} />
       </Routes>
     </>
   );
