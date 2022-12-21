@@ -1,10 +1,9 @@
-import React from "react";
-import styles from "./Home.module.css";
+import React from 'react'
 
-function Home() {
-  return <div>
-   
-    Bienvenido a HOUSE OF DEV</div>;
+const Home = () => {
+  return (
+    <div> Esta es la Home</div>
+  )
 }
 
-export default Home;
+export default Home

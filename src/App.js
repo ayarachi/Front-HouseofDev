@@ -13,6 +13,7 @@ import AdminProperties from "./components/AdminProperties";
 import AddProperty from "./components/AddProperty";
 import EditProperty from "./components/EditProperty";
 import AdminUsers from "./components/AdminUsers";
+import SearchResult from "./components/SearchResult";
 const App = () => {
   return (
     <>
@@ -23,12 +24,14 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/properties" element={<Properties />} />
         <Route path="/properties/:propertyId" element={<PropertyCard />} />
+        <Route path="/busqueda" element={<SearchResult />} />
         <Route path="/user/profile" element={<UserProfile />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/properties" element={<AdminProperties />} />
         <Route path="/admin/addproperty" element={<AddProperty />} />
         <Route path="/admin/editproperty/:propertyId" element={<EditProperty />} />
         <Route path="/admin/users" element={<AdminUsers />} />
+        
       </Routes>
     </>
   );

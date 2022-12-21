@@ -9,7 +9,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
-
 const Navbar = () => {
   const usuario = JSON.parse(localStorage.getItem("user"));
   const existeSesion = usuario ? true : false;
@@ -28,40 +27,40 @@ const Navbar = () => {
         alert("El logout fallo");
       });
   };
- 
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar sx={{ background: "#FE4236" }} position="static">
+      <AppBar sx={{ background: "rgb(224, 224, 221)" }} position="static">
         <Toolbar>
-          <Typography variant="h6" component="div">
+          <Typography color="grey" variant="h6" component="div">
             HOD
           </Typography>
           <Link to="/">
-            <Button color="inherit">Home</Button>
+            <Button  variant="outlined">Home</Button>
           </Link>
           <Link to="/properties">
-            <Button color="inherit">Mirar Propiedades</Button>
+            <Button variant="outlined">Mirar Propiedades</Button>
           </Link>
           <Link to="/user/profile">
-            <Button color="inherit">Perfil</Button>
+            <Button variant="outlined">Perfil</Button>
           </Link>
           <Link to="/Admin">
-            <Button color="inherit">Administrar Propiedades</Button>
+            <Button variant="outlined">Administrar Propiedades</Button>
           </Link>
-          
+
           <Link to="/register">
-            <Button color="inherit">Register</Button>
+            <Button variant="outlined">Register</Button>
           </Link>
+
           <div style={{ flexGrow: 1 }}></div>
-         <SearchBar></SearchBar>
+          <SearchBar></SearchBar>
 
           {!existeSesion ? (
             <Link to="/login">
-              <Button color="inherit">Iniciar Sesion</Button>
+              <Button variant="outlined">Iniciar Sesion</Button>
             </Link>
           ) : (
-            <Button onClick={handleLogout} color="inherit">
+            <Button onClick={handleLogout} variant="outlined">
               Cerrar Sesion
             </Button>
           )}

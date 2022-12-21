@@ -10,8 +10,7 @@ const Admin = () => {
     <Stack spacing={2} direction="row">
       <h5>
         {" "}
-        Este es el espacio del admin y puede modificar los datos de los
-        siguientes componenetes
+        PANEL DEL ADMINISTRADOR
       </h5>
       <Link to = "/admin/users">
       <Button variant="outlined">USUARIOS </Button>
