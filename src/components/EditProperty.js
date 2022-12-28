@@ -10,16 +10,15 @@ import { useEffect } from "react";
 
 const EditProperty = () => {
   const { propertyId } = useParams();
-  const [property, setProperty] = useState();
+  const [property, setProperty] = useState("");
   const navigateTo = useNavigate();
-  const [image, setImage] = useState();
-  // 1: Borrar estas cosas inutiles
-  const [name, setName] = useState();
-  const [type, setType] = useState();
-  const [price, setPrice] = useState();
-  const [neighborhood, setNeighborhood] = useState();
-  const [numRooms, setNumRooms] = useState();
-  const [description, setDescription] = useState();
+  const [image, setImage] = useState("");
+  const [name, setName] = useState("");
+  const [type, setType] = useState("");
+  const [price, setPrice] = useState("");
+  const [neighborhood, setNeighborhood] = useState("");
+  const [numRooms, setNumRooms] = useState("");
+  const [description, setDescription] = useState("");
 
   const onChangeImagen = (e) => {
     setImage(e.target.value);
@@ -49,14 +48,14 @@ const EditProperty = () => {
       .get(`/api/properties/${propertyId}`)
       .then((res) => {
         console.log(res);
-        // 4: Asignar valores por todos las propiedades asignables]
+
         setImage(res.data.image);
-        setName(res.data.name)
-        setType(res.data.type)
-        setPrice(res.data.price)
-        setNeighborhood(res.data.neighborhood)
-        setNumRooms(res.data.numRooms)
-        setDescription(res.data.description)
+        setName(res.data.name);
+        setType(res.data.type);
+        setPrice(res.data.price);
+        setNeighborhood(res.data.neighborhood);
+        setNumRooms(res.data.numRooms);
+        setDescription(res.data.description);
       })
       .catch((err) => {
         console.error(err);
@@ -88,15 +87,17 @@ const EditProperty = () => {
       component="form"
       sx={{
         "& .MuiTextField-root": { m: 1, width: "25ch" },
+        display : "flex",
+        flexDirection: "column",
+        alignItems: "center"
+
       }}
       noValidate
       autoComplete="off"
     >
-      {" "}
-      <div>
+      
         <TextField
           onChange={onChangeImagen}
-          id="outlined-basic"
           label="Imagen"
           variant="outlined"
           value={image}
@@ -105,35 +106,30 @@ const EditProperty = () => {
         <TextField
           value={name}
           onChange={onChangeNombre}
-          id="outlined-basic"
           label="Nombre"
           variant="outlined"
         />
         <TextField
           value={type}
           onChange={onChangeTipo}
-          id="outlined-basic"
           label="Typo"
           variant="outlined"
         />
         <TextField
           value={price}
           onChange={onChangePrecio}
-          id="outlined-basic"
           label="Precio"
           variant="outlined"
         />
         <TextField
           value={neighborhood}
           onChange={onChangeBarrio}
-          id="outlined-basic"
           label="Barrio"
           variant="outlined"
         />
         <TextField
           value={numRooms}
           onChange={onChangeAmbientes}
-          id="outlined-basic"
           label="N de habitaciones"
           variant="outlined"
         />
@@ -141,12 +137,11 @@ const EditProperty = () => {
         <TextField
           value={description}
           onChange={onChangeDescripcion}
-          id="outlined-multiline-static"
           label="Descripcion"
           multiline
           rows={4}
         />
-      </div>
+      
       <Button onClick={editarPropiedad} variant="text">
         {" "}
         Modificar propiedad

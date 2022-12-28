@@ -7,6 +7,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { Grid } from "@mui/material";
 
 const opcionesOrden = {
   MENOR: "MENOR",
@@ -59,6 +60,7 @@ function Properties() {
     filteredProperties.sort((a, b) => a.price - b.price);
   }
 
+
   return (
     <>
       <div>
@@ -98,10 +100,13 @@ function Properties() {
           </Select>
         </FormControl>
       </div>
-
+       <Grid container spacing={2}> 
       {filteredProperties.map((property) => (
+        <Grid item xs={3}> 
         <PropertiesCard key={property.id} property={property} />
+        </Grid>
       ))}
+      </Grid>
     </>
   );
 }

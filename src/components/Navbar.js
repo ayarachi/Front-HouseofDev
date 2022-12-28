@@ -13,6 +13,7 @@ const Navbar = () => {
   const usuario = JSON.parse(localStorage.getItem("user"));
   const existeSesion = usuario ? true : false;
 
+
   const navigateTo = useNavigate();
 
   const handleLogout = () => {
@@ -44,9 +45,10 @@ const Navbar = () => {
           <Link to="/user/profile">
             <Button variant="outlined">Perfil</Button>
           </Link>
-          <Link to="/Admin">
+          {usuario.isAdmin && <Link to="/Admin">
             <Button variant="outlined">Administrar Propiedades</Button>
-          </Link>
+          </Link>}
+          
 
           <Link to="/register">
             <Button variant="outlined">Register</Button>

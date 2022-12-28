@@ -1,5 +1,6 @@
 .register {
   padding: 80px;
-  background-color:aliceblue;
-  display: inline-block;
+  background-color: aliceblue;
+  margin: 0 auto;
+  width: 300px;
 }

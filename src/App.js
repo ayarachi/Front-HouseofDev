@@ -14,15 +14,19 @@ import AddProperty from "./components/AddProperty";
 import EditProperty from "./components/EditProperty";
 import AdminUsers from "./components/AdminUsers";
 import SearchResult from "./components/SearchResult";
+import Favorite from "./components/Favorites";
+import { Container } from "@mui/system";
 const App = () => {
   return (
     <>
       <Navbar />
+      <Container sx={{marginTop:"15px"}}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/properties" element={<Properties />} />
+        <Route path="/favorite" element={<Favorite />} />
         <Route path="/properties/:propertyId" element={<PropertyCard />} />
         <Route path="/busqueda" element={<SearchResult />} />
         <Route path="/user/profile" element={<UserProfile />} />
@@ -33,6 +37,7 @@ const App = () => {
         <Route path="/admin/users" element={<AdminUsers />} />
         
       </Routes>
+      </Container>
     </>
   );
 };
