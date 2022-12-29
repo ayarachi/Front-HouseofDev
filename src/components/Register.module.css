@@ -6,7 +6,11 @@
 }
 
 .register {
-  padding: 80px;
+  padding: 100px;
   background-color: rgb(224, 224, 221);
-  display: inline-block;
+  margin: 0 auto;
+  width: 300px;
 }
+
+
+  

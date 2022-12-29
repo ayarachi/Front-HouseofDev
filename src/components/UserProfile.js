@@ -15,7 +15,7 @@ function UserProfile() {
   return (
     <>
       <Box display="flex" justifyContent="center">
-        <div className={styles.register}>
+        <div className={styles.UserProfile}>
           <h1>Mi Perfil</h1>
           <div>
             <TextField

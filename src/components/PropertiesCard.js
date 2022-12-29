@@ -10,12 +10,18 @@ import Fab from "@mui/material/Fab";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import axios from "axios";
 
-const PropertiesCard = ({ property }) => {
+const PropertiesCard = ({
+  mostrarBotonVermas = true,
+  mostrarBotonFav = true,
+  mostrarBotonEliminar = false,
+  property,
+  favoriteId
+}) => {
   console.log("propertyCard ", property);
+
 
   const handleFavorite = () => {
     const usuario = JSON.parse(localStorage.getItem("user"));
-    console.log("se agregó a favoritos");
 
     axios
       .post("api/favorites", { propertyId: property.id, userId: usuario.id })
@@ -30,10 +36,9 @@ const PropertiesCard = ({ property }) => {
 
   const handleDeleteFav = () => {
     axios
-      .delete(`/api/favorites/${property.id}`)
-      .then((res) => {
-        console.log(res.data);
-      })
+      .delete(`/api/favorites/${favoriteId}`) 
+      .then((res) => {})
+      .then(() => window.location.reload(false))
       .catch((err) => {
         console.error(err);
         alert("Eliminar favoritos  falló");
@@ -60,16 +65,23 @@ const PropertiesCard = ({ property }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Fab onClick={handleFavorite} aria-laFabel="like">
-          <FavoriteIcon />
-        </Fab>
-        <Fab onClick={handleDeleteFav} aria-laFabel="like">
-          <FavoriteIcon />
-        </Fab>
-        <Link to={`/properties/${property.id}`}>
-          <Button type="button" size="small">
-            VER MAS
+        {mostrarBotonVermas && (
+          <Fab onClick={handleFavorite} aria-laFabel="like">
+            <FavoriteIcon />
+          </Fab>
+        )}
+        {mostrarBotonEliminar && (
+          <Button onClick={handleDeleteFav} type="button" size="small">
+            Eliminar favorito
           </Button>
+        )}
+
+        <Link to={`/properties/${property.id}`}>
+          {mostrarBotonVermas && (
+            <Button type="button" size="small">
+              VER MAS
+            </Button>
+          )}
         </Link>
       </CardActions>
     </Card>

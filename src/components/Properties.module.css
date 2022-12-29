@@ -1,0 +1,8 @@
+.container {
+  background-image: url(../static/images/foto-casa1.png);
+  background-size: cover;
+  height: 90vh;
+  padding: 5px;
+}
+h2{ color: grey;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}

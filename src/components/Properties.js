@@ -8,6 +8,9 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { Grid } from "@mui/material";
+import styles from "./Properties.module.css";
+import { grey } from "@mui/material/colors";
+import { Container } from "@mui/system";
 
 const opcionesOrden = {
   MENOR: "MENOR",
@@ -60,9 +63,12 @@ function Properties() {
     filteredProperties.sort((a, b) => a.price - b.price);
   }
 
-
   return (
     <>
+      <h2> BIENVENIDOS A HOUSE OF DEV</h2>
+      <div className={styles.container}></div>
+      <Container sx={{ marginTop: "60px" }}></Container>
+
       <div>
         <FormControl sx={{ m: 1, minWidth: 120 }}>
           <InputLabel id="demo-simple-select-helper-label">
@@ -100,12 +106,12 @@ function Properties() {
           </Select>
         </FormControl>
       </div>
-       <Grid container spacing={2}> 
-      {filteredProperties.map((property) => (
-        <Grid item xs={3}> 
-        <PropertiesCard key={property.id} property={property} />
-        </Grid>
-      ))}
+      <Grid container spacing={2}>
+        {filteredProperties.map((property) => (
+          <Grid item xs={3}>
+            <PropertiesCard key={property.id} property={property} />
+          </Grid>
+        ))}
       </Grid>
     </>
   );

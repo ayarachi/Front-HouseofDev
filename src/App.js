@@ -20,23 +20,25 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <Container sx={{marginTop:"15px"}}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/properties" element={<Properties />} />
-        <Route path="/favorite" element={<Favorite />} />
-        <Route path="/properties/:propertyId" element={<PropertyCard />} />
-        <Route path="/busqueda" element={<SearchResult />} />
-        <Route path="/user/profile" element={<UserProfile />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/admin/properties" element={<AdminProperties />} />
-        <Route path="/admin/addproperty" element={<AddProperty />} />
-        <Route path="/admin/editproperty/:propertyId" element={<EditProperty />} />
-        <Route path="/admin/users" element={<AdminUsers />} />
-        
-      </Routes>
+      <Container sx={{ marginTop: "15px" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/properties" element={<Properties />} />
+          <Route path="/favorite" element={<Favorite />} />
+          <Route path="/properties/:propertyId" element={<PropertyCard />} />
+          <Route path="/busqueda" element={<SearchResult />} />
+          <Route path="/user/profile" element={<UserProfile />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/properties" element={<AdminProperties />} />
+          <Route path="/admin/addproperty" element={<AddProperty />} />
+          <Route
+            path="/admin/editproperty/:propertyId"
+            element={<EditProperty />}
+          />
+          <Route path="/admin/users" element={<AdminUsers />} />
+        </Routes>
       </Container>
     </>
   );

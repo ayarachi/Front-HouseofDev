@@ -9,5 +9,6 @@
   padding: 40px;
   background-color:
   rgb(245, 245, 237);
-  display: inline-block;
+  margin: 0 auto;
+  width: 300px;
 }
