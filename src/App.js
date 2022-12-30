@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router";
 
-import Home from "./components/Home";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Properties from "./components/Properties";
@@ -22,7 +21,7 @@ const App = () => {
       <Navbar />
       <Container sx={{ marginTop: "15px" }}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Properties />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/properties" element={<Properties />} />

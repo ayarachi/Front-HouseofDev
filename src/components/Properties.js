@@ -1,16 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import PropertiesCard from "./PropertiesCard";
-
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { Grid } from "@mui/material";
-import styles from "./Properties.module.css";
-import { grey } from "@mui/material/colors";
+import { Card, CardMedia, Grid } from "@mui/material";
 import { Container } from "@mui/system";
+import casa from "../static/images/casa linda.jpg";
+import styles from "./Properties.module.css";
 
 const opcionesOrden = {
   MENOR: "MENOR",
@@ -65,9 +63,22 @@ function Properties() {
 
   return (
     <>
-      <h2> BIENVENIDOS A HOUSE OF DEV</h2>
-      <div className={styles.container}></div>
+      <div className={styles.titulo}>
+        <h2> BIENVENIDOS A HOUSE OF DEV</h2>
+      </div>
+
       <Container sx={{ marginTop: "60px" }}></Container>
+
+      <div>
+        <Card className={styles.imagenCasa} sx={{ maxWidth: 800 }}>
+          <CardMedia
+            component="img"
+            height="500"
+            image={casa}
+            alt="green iguana"
+          ></CardMedia>
+        </Card>
+      </div>
 
       <div>
         <FormControl sx={{ m: 1, minWidth: 120 }}>

@@ -15,10 +15,12 @@ const PropertiesCard = ({
   mostrarBotonFav = true,
   mostrarBotonEliminar = false,
   property,
-  favoriteId
+  favoriteId,
 }) => {
   console.log("propertyCard ", property);
 
+  const usuario = JSON.parse(localStorage.getItem("user"));
+  const existeSesion = usuario ? true : false;
 
   const handleFavorite = () => {
     const usuario = JSON.parse(localStorage.getItem("user"));
@@ -36,7 +38,7 @@ const PropertiesCard = ({
 
   const handleDeleteFav = () => {
     axios
-      .delete(`/api/favorites/${favoriteId}`) 
+      .delete(`/api/favorites/${favoriteId}`)
       .then((res) => {})
       .then(() => window.location.reload(false))
       .catch((err) => {
@@ -65,12 +67,14 @@ const PropertiesCard = ({
         </Typography>
       </CardContent>
       <CardActions>
-        {mostrarBotonVermas && (
+        
+        {mostrarBotonVermas && existeSesion && (
           <Fab onClick={handleFavorite} aria-laFabel="like">
             <FavoriteIcon />
           </Fab>
         )}
-        {mostrarBotonEliminar && (
+
+        {mostrarBotonEliminar &&  (
           <Button onClick={handleDeleteFav} type="button" size="small">
             Eliminar favorito
           </Button>

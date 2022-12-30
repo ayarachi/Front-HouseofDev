@@ -20,7 +20,7 @@ const Navbar = () => {
       .post("/api/users/logout")
       .then(() => localStorage.removeItem("user"))
       .then(() => {
-        navigateTo("/");
+        navigateTo("/properties");
       })
       .catch((err) => {
         console.error(err);
@@ -32,27 +32,34 @@ const Navbar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar sx={{ background: "rgb(224, 224, 221)" }} position="static">
         <Toolbar>
-          <Typography color="grey" variant="h6" component="div">
+          <Typography marginRight={5} color="grey" variant="h4" component="div">
             HOD
           </Typography>
-          <Link to="/">
-            <Button variant="outlined">Home</Button>
-          </Link>
-          <Link to="/properties">
-            <Button variant="outlined">Mirar Propiedades</Button>
-          </Link>
-          <Link to="/user/profile">
-            <Button variant="outlined">Perfil</Button>
-          </Link>
-          {usuario && usuario.isAdmin && (
-            <Link to="/Admin">
-              <Button variant="outlined">Administrar Propiedades</Button>
-            </Link>
-          )}
 
+          <Box marginRight={3}>
+            <Link to="/">
+              <Button variant="outlined">Home</Button>
+            </Link>
+          </Box>
+          { existeSesion && (
+          <Box marginRight={2}>
+            <Link to="/user/profile">
+              <Button variant="outlined">Perfil</Button>
+            </Link>
+          </Box>
+          )}
+          <Box marginRight={3}>
+            {usuario && usuario.isAdmin && (
+              <Link to="/Admin">
+                <Button variant="outlined">Administrar Propiedades</Button>
+              </Link>
+            )}
+          </Box>
+           {!existeSesion &&(
           <Link to="/register">
-            <Button  variant="outlined" >Register</Button>
+            <Button variant="outlined">Register</Button>
           </Link>
+          )}
 
           <div style={{ flexGrow: 1 }}></div>
           <SearchBar></SearchBar>
@@ -62,9 +69,11 @@ const Navbar = () => {
               <Button variant="outlined">Iniciar Sesion</Button>
             </Link>
           ) : (
-            <Button onClick={handleLogout} variant="outlined">
-              Cerrar Sesion
-            </Button>
+            <Box marginLeft={3}>
+              <Button onClick={handleLogout} variant="outlined">
+                Cerrar Sesion
+              </Button>
+            </Box>
           )}
         </Toolbar>
       </AppBar>
